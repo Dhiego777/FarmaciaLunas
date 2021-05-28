@@ -1,11 +1,12 @@
 <template>
   <div id="dashboard">
     <img alt="Lunas logo" src="../assets/logo.png" class="imagem" />
-    
-    <h1>Bem vindo a Drogaria Lunas</h1>
+    <br>
+    <h1>Lunas</h1>
     <p>
       Gestão inteligente de recursos
     </p>
+    <h1>Bem vindo a <B id="estabelecimento">Drogaria Farma</b></h1>
     <h3>Ambiente Cadastro</h3>
     <ul>
       <li><a href="#" target="_blank">Clientes</a></li>
@@ -33,7 +34,9 @@ export default {
 </script>
 
 <style>
-
+#estabelecimento {
+  color:#125c96 ;
+}
 #dashboard {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -41,7 +44,6 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
-  background-color: black;
 }
 .imagem {
   width: 175px;

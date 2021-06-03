@@ -80,7 +80,7 @@
       </div>
     </div>
     <div class="row d-flex justify-content-center">
-      <div class="col-3 mb-3">
+      <div class="col-2 mb-3">
         <label class="form-label">Bairro</label>
         <input
           type="text"
@@ -89,13 +89,31 @@
           v-model="place.bairro"
         />
       </div>
-      <div class="col-3 mb-3">
+      <div class="col-2 mb-3">
         <label class="form-label">Cidade</label>
         <input
           type="text"
           class="form-control"
           placeholder="Digite aqui o Cidade"
           v-model="place.localidade"
+        />
+      </div>
+      <div class="col-1 mb-3">
+        <label class="form-label">Numero</label>
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Digite aqui o Numero"
+          v-model="place.numero"
+        />
+      </div>
+      <div class="col-1 mb-3">
+        <label class="form-label">Complemento</label>
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Digite o Complemento"
+          v-model="place.complemento"
         />
       </div>
     </div>
@@ -115,7 +133,7 @@
         <input
           type="number"
           class="form-control"
-          placeholder="Digite aqui a telefone"
+          placeholder="Digite aqui o telefone"
           v-model="telefone.numero"
         />
       </div>
@@ -146,6 +164,8 @@ export default {
         logradouro: "",
         bairro: "",
         localidade: "",
+        numero: "",
+        complemento: "",
       },
       telefone: {
         ddd: "",

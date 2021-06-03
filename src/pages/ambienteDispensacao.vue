@@ -31,7 +31,7 @@
       <div class="col-3 mb-3">
         <label for="sexo">Sexo</label>
         <form>
-          <select v-model="sexo" name="sexo" id="sexo">
+          <select class="form-control mt-2" v-model="sexo" name="sexo" id="sexo">
             <option value="-1" disabled>Selecione o Sexo</option>
             <option value="m">Masculino</option>
             <option value="f">Feminino</option>

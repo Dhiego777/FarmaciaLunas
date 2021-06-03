@@ -1,4 +1,36 @@
 <template>
+  <nav class="container-fluid navbar navbar-expand-lg navbar-light bg-light mb-5">
+    <div
+      class="col collapse navbar-collapse d-flex justify-content-start"
+      id="navbarNavAltMarkup"
+    >
+      <div class="navbar-nav">
+        <a class="navbar-brand" href="#">
+          <img
+            src="./assets/logo.png"
+            width="40"
+            height="40"
+            class="d-inline-block align-center"
+            alt=""
+          />
+          Lunas
+        </a>
+      </div>
+    </div>
+    <div
+      class="col collapse navbar-collapse d-flex justify-content-end"
+      id="navbarNavAltMarkup"
+    >
+      <div class="navbar-nav">
+        <a class="nav-item nav-link active" href="#"
+          >Home <span class="sr-only">(current)</span></a
+        >
+        <a class="nav-item nav-link" href="#">Features</a>
+        <a class="nav-item nav-link" href="#">Pricing</a>
+        <a class="nav-item nav-link disabled" href="#">Disabled</a>
+      </div>
+    </div>
+  </nav>
   <router-view />
 </template>
 

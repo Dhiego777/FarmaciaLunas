@@ -1,9 +1,4 @@
 <template>
-  <nav class="mt-3 mb-5">
-    <ul>
-      <li><router-link to="/">Home</router-link></li>
-    </ul>
-  </nav>
   <div class="container-fluid">
     <div class="row d-flex justify-content-center">
       <div class="col-6 mb-3">

@@ -9,8 +9,8 @@
     <h1>Bem vindo a <B id="estabelecimento">Drogaria Farma</b></h1>
     <h3>Ambiente Cadastro</h3>
     <ul>
-      <li><a href="#" target="_blank">Clientes</a></li>
-      <li><a href="#" target="_blank">Produtos</a></li>
+      <li><router-link to="/CadastroCliente">Clientes</router-link></li>
+      <li><router-link to="/Produtos">Produtos</router-link></li>
       <li><a href="#" target="_blank">Entradas</a></li>
     </ul>
     <h3>Ambiente Dispensação</h3>

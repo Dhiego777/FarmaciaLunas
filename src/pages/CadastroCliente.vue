@@ -1,7 +1,9 @@
 <template>
+  <!-- Botao com lista de cadastro e um para Editar Cadastro -->
   <div class="container-fluid">
     <div class="row d-flex justify-content-center">
-      <div class="col-6 mb-3">
+      <h1>Cadastro de Cliente</h1>
+      <div class="col-6 mb-3 mt-2">
         <label class="form-label">CPF</label>
         <input
           type="text"
@@ -98,7 +100,7 @@
         <input
           type="text"
           class="form-control"
-          placeholder="Digite aqui o Numero"
+          placeholder="Numero"
           v-model="place.numero"
         />
       </div>
@@ -107,7 +109,7 @@
         <input
           type="text"
           class="form-control"
-          placeholder="Digite o Complemento"
+          placeholder="Complemento"
           v-model="place.complemento"
         />
       </div>

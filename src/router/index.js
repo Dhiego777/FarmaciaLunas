@@ -1,7 +1,9 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 
+//Telas
 import dashBoard from '../pages/dashBoard.vue'
-import ambienteDispensacao from '../pages/ambienteDispensacao'
+import CadastroCliente from '../pages/CadastroCliente.vue'
+import Produtos from '../pages/Produtos.vue'
 
 const routes = [
   {
@@ -11,10 +13,20 @@ const routes = [
     // redirect:'/batata',
   },
   {
-    path: '/AmbienteDispensacao',
-    name: 'AmbienteDispensacao',
-    component: ambienteDispensacao,
+    path: '/CadastroCliente',
+    name: 'CadastroCliente',
+    component: CadastroCliente, 
   },
+  {
+    path: '/Produtos',
+    name: 'Produtos',
+    component: Produtos, 
+  },
+  // {
+  //   path: '/AmbienteDispensacao',
+  //   name: 'AmbienteDispensacao',
+  //   component: ambienteDispensacao,
+  // },
   {
     path: '/about',
     name: 'About',

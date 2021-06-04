@@ -1,5 +1,5 @@
 <template>
-  <nav class="container-fluid navbar navbar-expand-lg navbar-light bg-light mb-5">
+  <nav class="container-fluid navbar navbar-expand-lg navbar-light bg-light mb-2">
     <div
       class="col collapse navbar-collapse d-flex justify-content-start"
       id="navbarNavAltMarkup"

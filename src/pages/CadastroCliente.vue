@@ -54,15 +54,6 @@
           placeholder="Digite aqui o CEP"
           v-model="cep"
         />
-        <div class="d-grid gap-2 mt-2">
-          <button
-            type="button"
-            @click="getDetailsFromViaCep()"
-            class="btn btn-primary btn-block"
-          >
-            Pesquisar
-          </button>
-        </div>
       </div>
     </div>
     <div class="row d-flex justify-content-center">
@@ -170,8 +161,12 @@ export default {
       },
     };
   },
-  props: {
-    msg: String,
+  watch: {
+    cep: function(value) {
+      if (value.length === 8) {
+        this.getDetailsFromViaCep()
+      }
+    } 
   },
   methods: {
     getDetailsFromViaCep: function () {

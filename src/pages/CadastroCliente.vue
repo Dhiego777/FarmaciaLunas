@@ -129,7 +129,7 @@
     <div class="row d-flex justify-content-center">
       <div class="col-6 mb-3">
         <div class="d-grid gap-2 mt-2">
-          <button type="button" class="btn btn-primary btn-block">
+          <button v-on:click="getCadastroCliente()" type="button" class="btn btn-primary btn-block">
             Cadastrar
           </button>
         </div>
@@ -148,6 +148,7 @@ export default {
       idade: 0,
       sexo: "-1",
       cep: "",
+      place1:"",
       place: {
         logradouro: "",
         bairro: "",
@@ -159,6 +160,7 @@ export default {
         ddd: "",
         numero: "",
       },
+      getCadastro: {},
     };
   },
   watch: {
@@ -181,6 +183,21 @@ export default {
           alert(e);
         });
     },
+    getCadastroCliente: function () {
+        fetch(`http://localhost:3000/cadastro`)
+        .then((response) => {
+          response.json().then((json) => {
+            this.getCadastro = json;
+          
+          this.cpf=this.getCadastro.cpf;
+          this.nome=this.getCadastro.nome;
+            
+          });
+        })
+        .catch((e) => {
+          alert(e);
+        });
+    }
   },
 };
 </script>

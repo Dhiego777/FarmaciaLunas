@@ -6,7 +6,7 @@
     <p>
       Gestão inteligente de recursos
     </p>
-    <h1>Bem vindo a <B id="estabelecimento">Drogaria Farma</b></h1>
+    <h1>Bem vindo a <b id="estabelecimento">Drogaria Farma</b></h1>
     <h3>Ambiente Cadastro</h3>
     <ul>
       <li><router-link to="/CadastroCliente">Clientes</router-link></li>

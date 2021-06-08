@@ -28,10 +28,15 @@
       <div class="col-3 mb-3">
         <label for="sexo">Sexo</label>
         <form>
-          <select class="form-control mt-2" v-model="sexo" name="sexo" id="sexo">
+          <select
+            class="form-control mt-2"
+            v-model="sexo"
+            name="sexo"
+            id="sexo"
+          >
             <option value="-1" disabled>Selecione o Sexo</option>
-            <option value="m">Masculino</option>
-            <option value="f">Feminino</option>
+            <option value="Masculino">Masculino</option>
+            <option value="Feminino">Feminino</option>
           </select>
         </form>
       </div>
@@ -129,7 +134,11 @@
     <div class="row d-flex justify-content-center">
       <div class="col-6 mb-3">
         <div class="d-grid gap-2 mt-2">
-          <button v-on:click="getCadastroCliente()" type="button" class="btn btn-primary btn-block">
+          <button
+            v-on:click="getCadastroCliente()"
+            type="button"
+            class="btn btn-primary btn-block"
+          >
             Cadastrar
           </button>
         </div>
@@ -143,12 +152,11 @@
 export default {
   data() {
     return {
-      cpf: 0,
+      cpf: "",
       nome: "",
       idade: 0,
       sexo: "-1",
       cep: "",
-      place1:"",
       place: {
         logradouro: "",
         bairro: "",
@@ -164,11 +172,16 @@ export default {
     };
   },
   watch: {
-    cep: function(value) {
+    cep: function (value) {
       if (value.length === 8) {
-        this.getDetailsFromViaCep()
+        this.getDetailsFromViaCep();
       }
-    } 
+    },
+    cpf: function (value) {
+      if (value.length === 11) {
+        this.getCadastroCliente();
+      }
+    },
   },
   methods: {
     getDetailsFromViaCep: function () {
@@ -184,20 +197,27 @@ export default {
         });
     },
     getCadastroCliente: function () {
-        fetch(`http://localhost:3000/cadastro`)
+      fetch(`http://localhost:3000/cadastro`)
         .then((response) => {
           response.json().then((json) => {
             this.getCadastro = json;
-          
-          this.cpf=this.getCadastro.cpf;
-          this.nome=this.getCadastro.nome;
-            
+
+            this.cpf = this.getCadastro.cpf;
+            this.nome = this.getCadastro.nome;
+            this.sexo = this.getCadastro.sexo;
+            this.idade = this.getCadastro.idade;
+            // this.cep = this.getCadastro.cep;
+            this.place.logradouro = this.getCadastro.rua;
+            this.place.numero = this.getCadastro.numero;
+            this.place.complemento = this.getCadastro.complemento;
+            this.telefone.ddd=this.getCadastro.ddd;
+            this.telefone.numero=this.getCadastro.telefone;
           });
         })
         .catch((e) => {
           alert(e);
         });
-    }
+    },
   },
 };
 </script>

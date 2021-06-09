@@ -9,7 +9,7 @@
           type="text"
           class="form-control"
           placeholder="Digite aqui o CPF"
-          v-model="cpf"
+          v-model="cliente.cpf"
         />
       </div>
     </div>
@@ -20,7 +20,7 @@
           type="text"
           class="form-control"
           placeholder="Digite aqui o Nome"
-          v-model="nome"
+          v-model="cliente.nome"
         />
       </div>
     </div>
@@ -30,7 +30,7 @@
         <form>
           <select
             class="form-control mt-2"
-            v-model="sexo"
+            v-model="cliente.sexo"
             name="sexo"
             id="sexo"
           >
@@ -46,7 +46,7 @@
           type="number"
           class="form-control"
           placeholder="Digite aqui a Idade"
-          v-model="idade"
+          v-model="cliente.idade"
         />
       </div>
     </div>
@@ -57,7 +57,7 @@
           type="text"
           class="form-control"
           placeholder="Digite aqui o CEP"
-          v-model="cep"
+          v-model="cliente.cep"
         />
       </div>
     </div>
@@ -68,7 +68,7 @@
           type="text"
           class="form-control"
           placeholder="Digite aqui o Endereço"
-          v-model="place.logradouro"
+          v-model="cliente.place.logradouro"
         />
       </div>
     </div>
@@ -79,7 +79,7 @@
           type="text"
           class="form-control"
           placeholder="Digite aqui o Bairro"
-          v-model="place.bairro"
+          v-model="cliente.place.bairro"
         />
       </div>
       <div class="col-2 mb-3">
@@ -88,7 +88,7 @@
           type="text"
           class="form-control"
           placeholder="Digite aqui o Cidade"
-          v-model="place.localidade"
+          v-model="cliente.place.localidade"
         />
       </div>
       <div class="col-1 mb-3">
@@ -97,7 +97,7 @@
           type="text"
           class="form-control"
           placeholder="Numero"
-          v-model="place.numero"
+          v-model="cliente.place.numero"
         />
       </div>
       <div class="col-1 mb-3">
@@ -106,7 +106,7 @@
           type="text"
           class="form-control"
           placeholder="Complemento"
-          v-model="place.complemento"
+          v-model="cliente.place.complemento"
         />
       </div>
     </div>
@@ -118,7 +118,7 @@
           type="number"
           class="form-control"
           placeholder="DDD"
-          v-model="telefone.ddd"
+          v-model="cliente.telefone.ddd"
         />
       </div>
       <div class="col-3 mb-3">
@@ -127,7 +127,7 @@
           type="number"
           class="form-control"
           placeholder="Digite aqui o telefone"
-          v-model="telefone.numero"
+          v-model="cliente.telefone.numero"
         />
       </div>
     </div>
@@ -135,7 +135,7 @@
       <div class="col-6 mb-3">
         <div class="d-grid gap-2 mt-2">
           <button
-            v-on:click="getCadastroCliente()"
+            v-on:click="saveUser"
             type="button"
             class="btn btn-primary btn-block"
           >
@@ -147,76 +147,46 @@
   </div>
 </template>
 <script>
-//import axios
+//import Api
+import userApi from "../api/user";
+
+//import Class
+import User from "../models/user";
 
 export default {
   data() {
     return {
-      cpf: "",
-      nome: "",
-      idade: 0,
-      sexo: "-1",
-      cep: "",
-      place: {
-        logradouro: "",
-        bairro: "",
-        localidade: "",
-        numero: "",
-        complemento: "",
-      },
-      telefone: {
-        ddd: "",
-        numero: "",
-      },
-      getCadastro: {},
+      cliente: new User()
     };
   },
   watch: {
-    cep: function (value) {
+    "cliente.cep": function (value) {
       if (value.length === 8) {
         this.getDetailsFromViaCep();
-      }
-    },
-    cpf: function (value) {
-      if (value.length === 11) {
-        this.getCadastroCliente();
       }
     },
   },
   methods: {
     getDetailsFromViaCep: function () {
       // HTTP get https://viacep.com.br/ws/${this.cep}/json/
-      fetch(`https://viacep.com.br/ws/${this.cep}/json/`)
+      fetch(`https://viacep.com.br/ws/${this.cliente.cep}/json/`)
         .then((response) => {
           response.json().then((json) => {
-            this.place = json;
+            this.cliente.place = { ...this.cliente.place, ...json };
           });
         })
         .catch((e) => {
           alert(e);
         });
     },
-    getCadastroCliente: function () {
-      fetch(`http://localhost:3000/cadastro`)
-        .then((response) => {
-          response.json().then((json) => {
-            this.getCadastro = json;
-
-            this.cpf = this.getCadastro.cpf;
-            this.nome = this.getCadastro.nome;
-            this.sexo = this.getCadastro.sexo;
-            this.idade = this.getCadastro.idade;
-            // this.cep = this.getCadastro.cep;
-            this.place.logradouro = this.getCadastro.rua;
-            this.place.numero = this.getCadastro.numero;
-            this.place.complemento = this.getCadastro.complemento;
-            this.telefone.ddd=this.getCadastro.ddd;
-            this.telefone.numero=this.getCadastro.telefone;
-          });
+    saveUser() {
+      userApi
+        .create(this.cliente)
+        .then(() => {
+          // this.cliente = new User()
         })
-        .catch((e) => {
-          alert(e);
-        });
+        .catch();
+      console.log(this.cliente);
     },
   },
 };

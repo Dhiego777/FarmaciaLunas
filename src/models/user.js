@@ -3,7 +3,7 @@ module.exports = class User {
     this.cpf = ""
     this.nome = ""
     this.idade = 0
-    this.sexo = "-1"
+    this.sexo = "nada"
     this.cep = ""
     this.place = {
       logradouro: "",
@@ -11,11 +11,12 @@ module.exports = class User {
       localidade: "",
       numero: "",
       complemento: "",
+      id_cliente: "",
     }
     this.telefone = {
-
       ddd: "",
       numero: "",
+      id_cliente: "",
     }
   }
 }

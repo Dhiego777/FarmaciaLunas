@@ -34,9 +34,9 @@
             name="sexo"
             id="sexo"
           >
-            <option value="-1" disabled>Selecione o Sexo</option>
-            <option value="Masculino">Masculino</option>
-            <option value="Feminino">Feminino</option>
+            <option value="nada" disabled>Selecione o Sexo</option>
+            <option value="M">Masculino</option>
+            <option value="F">Feminino</option>
           </select>
         </form>
       </div>
@@ -183,7 +183,7 @@ export default {
       userApi
         .create(this.cliente)
         .then(() => {
-          // this.cliente = new User()
+        this.cliente = new User()
         })
         .catch();
       console.log(this.cliente);

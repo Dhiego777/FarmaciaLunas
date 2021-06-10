@@ -2,10 +2,10 @@ import api from './'
 
 export default {
     getAll: _ => {
-        return api.get('/user');
+        return api.get('/users');
     },
     getOne: cpf => {
-        return api.get(`/user/${cpf}`);
+        return api.get(`/user?cpf=${cpf}`);
     },
     create: user => {
         return api.post(`/user`, user);

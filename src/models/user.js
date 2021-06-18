@@ -11,12 +11,12 @@ module.exports = class User {
       localidade: "",
       numero: "",
       complemento: "",
-      id_cliente: "",
+      id_user: "",
     }
     this.telefone = {
       ddd: "",
       numero: "",
-      id_cliente: "",
+      id_user: "",
     }
   }
 }

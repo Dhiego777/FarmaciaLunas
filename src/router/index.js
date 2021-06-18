@@ -4,6 +4,7 @@ import { createRouter, createWebHashHistory } from 'vue-router'
 import dashBoard from '../pages/dashBoard.vue'
 import CadastroCliente from '../pages/CadastroCliente.vue'
 import Produtos from '../pages/Produtos.vue'
+import Clients from '../pages/Clients.vue'
 
 const routes = [
   {
@@ -11,6 +12,11 @@ const routes = [
     name: 'DashBoard',
     component: dashBoard,
     // redirect:'/batata',
+  },
+  {
+    path: '/Clients',
+    name: 'Clients',
+    component: Clients, 
   },
   {
     path: '/CadastroCliente',

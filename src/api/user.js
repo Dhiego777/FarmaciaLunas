@@ -11,9 +11,9 @@ export default {
         return api.post(`/user`, user);
     },
     delete: cpf => {
-        return api.delete(`/user/${cpf}`);
+        return api.delete(`/user?cpf=${cpf}`);
     },
     put: user => {
-        return api.put(`/user/${user.cpf}`, user);
+        return api.put(`/user?cpf=${user.cpf}`, user);
     }
 }

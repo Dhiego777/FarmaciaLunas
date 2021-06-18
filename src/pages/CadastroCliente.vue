@@ -135,7 +135,7 @@
       <div class="col-6 mb-3">
         <div class="d-grid gap-2 mt-2">
           <button
-            v-on:click="saveUser"
+            v-on:click="cadastrarUser"
             type="button"
             class="btn btn-primary btn-block"
           >
@@ -156,7 +156,7 @@ import User from "../models/user";
 export default {
   data() {
     return {
-      cliente: new User()
+      cliente: new User(),
     };
   },
   watch: {
@@ -179,11 +179,11 @@ export default {
           alert(e);
         });
     },
-    saveUser() {
+    cadastrarUser() {
       userApi
         .create(this.cliente)
         .then(() => {
-        this.cliente = new User()
+          this.cliente = new User()
         })
         .catch();
       console.log(this.cliente);

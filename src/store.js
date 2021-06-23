@@ -1,11 +1,9 @@
 import { createStore } from 'vuex'
 
-
-
 export default createStore({
   state: {
     selectedUser: {},
-    users: [],
+    user: [],
   },
   mutations: {
     setSelectedUser(state, user) {
@@ -15,6 +13,10 @@ export default createStore({
     setUsers(state, users) {
       localStorage.setItem("users", JSON.stringify(users));
       state.users = users;
+    },
+    setUser(){
+      localStorage.setItem("user", JSON.stringify(user));
+      state.user = user;
     },
     initialiseStore(state) {
       let localStorageSelectedUser = localStorage.getItem("selectedUser");

@@ -1,5 +1,5 @@
 <template>
-  <div class="d-flex justify-content-start mb-3 ms-5" >
+  <div class="d-flex justify-content-start mb-3 ms-5">
     <router-link to="/Clientes">
       <button type="button" class="btn btn-primary mt-3 mr-5" id="new-cliente">
         Voltar
@@ -8,14 +8,15 @@
   </div>
   <div class="container-fluid">
     <div class="row d-flex justify-content-center">
-      <h1>Cadastro do Cliente</h1>
+      <h1>Editar Cliente</h1>
       <div class="col-6 mb-3 mt-2">
         <label class="form-label">CPF</label>
         <input
           type="text"
           class="form-control"
           placeholder="Digite aqui o CPF"
-          v-model="cliente.cpf"
+          v-model="user.cpf"
+          disabled
         />
       </div>
     </div>
@@ -26,7 +27,7 @@
           type="text"
           class="form-control"
           placeholder="Digite aqui o Nome"
-          v-model="cliente.nome"
+          v-model="user.nome"
         />
       </div>
     </div>
@@ -36,7 +37,7 @@
         <form>
           <select
             class="form-control mt-2"
-            v-model="cliente.sexo"
+            v-model="user.sexo"
             name="sexo"
             id="sexo"
           >
@@ -52,8 +53,8 @@
           type="number"
           class="form-control"
           placeholder="Digite aqui a Idade"
-          v-model="cliente.idade"
-        />
+          v-model="user.idade"
+        >
       </div>
     </div>
     <div class="row d-flex justify-content-center">
@@ -63,7 +64,7 @@
           type="text"
           class="form-control"
           placeholder="Digite aqui o CEP"
-          v-model="cliente.place.cep"
+          v-model="user.place.cep"
         />
       </div>
     </div>
@@ -74,7 +75,7 @@
           type="text"
           class="form-control"
           placeholder="Digite aqui o Endereço"
-          v-model="cliente.place.logradouro"
+          v-model="user.place.logradouro"
         />
       </div>
     </div>
@@ -85,7 +86,7 @@
           type="text"
           class="form-control"
           placeholder="Digite aqui o Bairro"
-          v-model="cliente.place.bairro"
+          v-model="user.place.bairro"
         />
       </div>
       <div class="col-2 mb-3">
@@ -94,7 +95,7 @@
           type="text"
           class="form-control"
           placeholder="Digite aqui o Cidade"
-          v-model="cliente.place.localidade"
+          v-model="user.place.localidade"
         />
       </div>
       <div class="col-1 mb-3">
@@ -103,7 +104,7 @@
           type="text"
           class="form-control"
           placeholder="Numero"
-          v-model="cliente.place.numero"
+          v-model="user.place.numero"
         />
       </div>
       <div class="col-1 mb-3">
@@ -112,7 +113,7 @@
           type="text"
           class="form-control"
           placeholder="Complemento"
-          v-model="cliente.place.complemento"
+          v-model="user.place.complemento"
         />
       </div>
     </div>
@@ -124,7 +125,7 @@
           type="number"
           class="form-control"
           placeholder="DDD"
-          v-model="cliente.telefone.ddd"
+          v-model="user.telefone.ddd"
         />
       </div>
       <div class="col-3 mb-3">
@@ -133,7 +134,7 @@
           type="number"
           class="form-control"
           placeholder="Digite aqui o telefone"
-          v-model="cliente.telefone.telefone"
+          v-model="user.telefone.telefone"
         />
       </div>
     </div>
@@ -141,11 +142,11 @@
       <div class="col-6 mb-3">
         <div class="d-grid gap-2 mt-2">
           <button
-            v-on:click="cadastrarUser"
+            v-on:click="updateUser"
             type="button"
             class="btn btn-primary btn-block"
           >
-            Cadastrar
+            Atualizar
           </button>
         </div>
       </div>
@@ -153,49 +154,78 @@
   </div>
 </template>
 <script>
+//Components
+
 //import Api
 import userApi from "../api/user";
 
 //import Class
 import User from "../models/user";
 
-
 export default {
   data() {
     return {
-      cliente: new User({}),
+      user: new User({}),
     };
   },
   watch: {
-    "cliente.place.cep": function (value) {
+    "user.place.cep": 
+      function (value) {
       if (value.length === 8) {
         this.getDetailsFromViaCep();
       }
     },
+    $route: {
+      immediate: true,
+      handler: function (newRoute) {
+        
+        try{
+          this.getUser(newRoute.query.cpf);
+        }
+        catch(error) {
+          console.error("CCCCCCC", error)
+        }
+      },
+    },
   },
+
   methods: {
     getDetailsFromViaCep: function () {
       // HTTP get https://viacep.com.br/ws/${this.cep}/json/
-      fetch(`https://viacep.com.br/ws/${this.cliente.place.cep}/json/`)
+      fetch(`https://viacep.com.br/ws/${this.user.place.cep}/json/`)
         .then((response) => {
           response.json().then((json) => {
             delete json.complemento
             delete json.cep
-            this.cliente.place = { ...this.cliente.place, ...json };
+            this.user.place = { ...this.user.place, ...json};
           });
         })
         .catch((e) => {
           alert(e);
         });
     },
-    cadastrarUser() {
-      userApi
-        .create(this.cliente)
+    async updateUser() {
+      await userApi
+        .put(this.user)
         .then(() => {
-          this.cliente = new User({})
+          window.location = "#/Clientes";
         })
-        .catch();
+        .catch(e => {
+          console.error("BBBBBB", e)
+        });
     },
+    getUser(cpf){
+      userApi
+        .getOne(cpf)
+        .then(({ data }) => {
+          if(data){
+            this.user = new User(data);
+          }
+        })
+        .catch((err) => {
+          console.log("err: ", err);
+        });
+    }
   },
 };
 </script>

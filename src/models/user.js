@@ -1,22 +1,22 @@
 module.exports = class User {
-  constructor() {
-    this.cpf = ""
-    this.nome = ""
-    this.idade = 0
-    this.sexo = "nada"
-    this.cep = ""
+  constructor(user) {
+    this.cpf = user.cpf || "",
+    this.nome = user.nome || "",
+    this.idade = user.idade || "",
+    this.sexo = user.sexo || "nada",
     this.place = {
-      logradouro: "",
-      bairro: "",
-      localidade: "",
-      numero: "",
-      complemento: "",
-      id_user: "",
-    }
+      cep: user.cep || "",
+      logradouro: user.logradouro || "",
+      bairro: user.bairro || "",
+      localidade: user.localidade || "",
+      numero: user.numero || "",
+      complemento: user.complemento || "",
+      id_user: user.id_user || "",
+    },
     this.telefone = {
-      ddd: "",
-      numero: "",
-      id_user: "",
+      ddd: user.ddd || "",
+      telefone: user.telefone || "",
+      id_user: user.id_user || "",
     }
   }
 }

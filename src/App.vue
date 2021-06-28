@@ -1,5 +1,7 @@
 <template>
-  <nav class="container-fluid navbar navbar-expand-lg navbar-light bg-light mb-2">
+  <nav
+    class="container-fluid navbar navbar-expand-lg navbar-light bg-light mb-2"
+  >
     <div
       class="col collapse navbar-collapse d-flex justify-content-start"
       id="navbarNavAltMarkup"
@@ -17,7 +19,7 @@
         </a>
       </div>
     </div>
-    <div
+    <!-- <div
       class="col collapse navbar-collapse d-flex justify-content-end"
       id="navbarNavAltMarkup"
     >
@@ -29,7 +31,7 @@
         <a class="nav-item nav-link" href="#">Pricing</a>
         <a class="nav-item nav-link disabled" href="#">Disabled</a>
       </div>
-    </div>
+    </div> -->
   </nav>
   <router-view />
 </template>
@@ -44,9 +46,9 @@
   background-color: #e2e2e2;
 }
 
-#nav {
+/* #nav {
   padding: 30px;
-}
+} */
 
 #nav a {
   font-weight: bold;

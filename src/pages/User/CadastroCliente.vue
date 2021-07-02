@@ -174,10 +174,10 @@
 </template>
 <script>
 //import Api
-import userApi from "../api/user";
+import userApi from "../../api/user";
 
 //import Class
-import User from "../models/user";
+import User from "../../models/user";
 
 //toast
 import { useToast } from "vue-toastification";

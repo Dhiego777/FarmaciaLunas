@@ -2,10 +2,13 @@ import { createRouter, createWebHashHistory } from 'vue-router'
 
 //Telas
 import dashBoard from '../pages/dashBoard.vue'
-import CadastroCliente from '../pages/CadastroCliente.vue'
-import Produtos from '../pages/Produtos.vue'
-import Clientes from '../pages/Clientes.vue'
-import EditarCliente from '../pages/EditarCliente.vue'
+import Clientes from '../pages/User/Clientes.vue'
+import CadastroCliente from '../pages/User/CadastroCliente.vue'
+import EditarCliente from '../pages/User/EditarCliente.vue'
+import Produtos from '../pages/Product/Produtos.vue'
+import CadastroProduto from '../pages/Product/CadastroProduto.vue'
+import EditarProduto from '../pages/Product/EditarProduto.vue'
+
 
 const routes = [
   {
@@ -34,11 +37,16 @@ const routes = [
     name: 'Produtos',
     component: Produtos, 
   },
-  // {
-  //   path: '/AmbienteDispensacao',
-  //   name: 'AmbienteDispensacao',
-  //   component: ambienteDispensacao,
-  // },
+  {
+    path: '/CadastroProduto',
+    name: 'CadastroProduto',
+    component: CadastroProduto, 
+  },
+  {
+    path: '/Produtos/EditarProduto',
+    name: 'EditarProduto',
+    component: EditarProduto, 
+  },
   {
     path: '/about',
     name: 'About',

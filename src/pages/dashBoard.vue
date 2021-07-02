@@ -15,7 +15,7 @@
     </ul>
     <h3>Ambiente Dispensação</h3>
     <ul>
-      <li><router-link to="/AmbienteDispensacao">Iniciar</router-link></li>
+      <li><router-link to="/Produtos">Iniciar</router-link></li>
     </ul>
     <h3>Ambiente Gestão</h3>
     <ul>

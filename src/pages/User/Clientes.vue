@@ -34,19 +34,19 @@
               <tbody>
                 <tr v-for="(user, index) in users" :key="index">
                   <th>{{ user.iduser }}</th>
-                  <td>{{ user.cpf }}</td>
-                  <td>{{ user.nome }}</td>
-                  <td>{{ user.sexo }}</td>
-                  <td>{{ user.idade }}</td>
-                  <td>{{ user.cep }}</td>
-                  <td>{{ user.logradouro }}</td>
-                  <td>{{ user.bairro }}</td>
-                  <td>{{ user.localidade }}</td>
-                  <td>{{ user.estado }}</td>
-                  <td>{{ user.numero }}</td>
-                  <td>{{ user.complemento }}</td>
-                  <td>{{ user.ddd }}</td>
-                  <td>{{ user.telefone }}</td>
+                  <td class="break">{{ user.cpf }}</td>
+                  <td class="break">{{ user.nome }}</td>
+                  <td class="break">{{ user.sexo }}</td>
+                  <td class="break">{{ user.idade }}</td>
+                  <td class="break">{{ user.cep }}</td>
+                  <td class="break">{{ user.logradouro }}</td>
+                  <td class="break">{{ user.bairro }}</td>
+                  <td class="break">{{ user.localidade }}</td>
+                  <td class="break">{{ user.estado }}</td>
+                  <td class="break">{{ user.numero }}</td>
+                  <td class="break">{{ user.complemento }}</td>
+                  <td class="break">{{ user.ddd }}</td>
+                  <td class="break">{{ user.telefone }}</td>
                   <td class="text-center">
                     <router-link
                       :to="`/Clientes/EditarCliente?cpf=${user.cpf}`"
@@ -144,7 +144,7 @@
 </template>
 <script>
 //API
-import userApi from "../api/user";
+import userApi from "../../api/user";
 
 //toast
 import { useToast } from "vue-toastification";
@@ -181,53 +181,59 @@ export default {
         });
     },
     deleteUser(user) {
-      userApi.delete(user.cpf).then((_) => {
-        this.getUsers();
-        this.toast.success("Cadastro apagado com sucesso").catch((err) => {
+      userApi
+        .delete(user.cpf)
+        .then((_) => {
+          this.getUsers();
+          this.toast.success(`Cadastro apagado com sucesso`);
+        })
+        .catch((err) => {
           this.toast.error(`Erro ao apagar o usuário ${this.user}`);
         });
-      });
     },
   },
 };
 </script>
 <style>
-
-
+.break {
+  max-width: 105px;
+  min-width: 55px;
+  word-wrap: break-word;
+}
 @media (max-width: 575.99px) {
   #user-table {
     padding-left: 600px;
     overflow: auto;
   }
 }
-@media (min-width:576px) and (max-width:670px){
-  .card{
+@media (min-width: 576px) and (max-width: 670px) {
+  .card {
     padding-left: 564px;
     overflow: auto;
   }
 }
-@media (min-width:671px) and (max-width:991.98px){
-  .card{
-    width:95%;
+@media (min-width: 671px) and (max-width: 991.98px) {
+  .card {
+    width: 95%;
     padding-left: 560px;
     overflow: auto;
   }
 }
-@media (min-width:992px) and (max-width:1199px){
-  .card{
-    width:97%;
+@media (min-width: 992px) and (max-width: 1199px) {
+  .card {
+    width: 97%;
     padding-left: 200px;
     overflow: auto;
   }
 }
-@media (min-width:1200px) and (max-width:1680px){
-  .card{
-    width:97%;
+@media (min-width: 1200px) and (max-width: 1680px) {
+  .card {
+    width: 97%;
     overflow: auto;
   }
 }
-@media (min-width:1681px){
-  .card{
+@media (min-width: 1681px) {
+  .card {
     width: 98%;
   }
 }

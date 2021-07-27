@@ -14,7 +14,7 @@
         <input
           maxlength="11"
           type="text"
-          class="form-control"
+          class="form-control shadow"
           placeholder="Digite aqui o CPF"
           v-model="cliente.cpf"
         />
@@ -26,7 +26,7 @@
         <input
           maxlength="100"
           type="text"
-          class="form-control"
+          class="form-control shadow"
           placeholder="Digite aqui o Nome"
           v-model="cliente.nome"
           pattern="[a-zA-Z\s]+$"
@@ -38,7 +38,7 @@
         <label for="sexo">Sexo</label>
         <form>
           <select
-            class="form-control mt-2"
+            class="form-control shadow mt-2"
             v-model="cliente.sexo"
             name="sexo"
             id="sexo"
@@ -53,7 +53,7 @@
         <label class="form-label">Idade</label>
         <input
           type="number"
-          class="form-control"
+          class="form-control shadow"
           placeholder="Digite aqui a Idade"
           max="999"
           maxlength="3"
@@ -68,7 +68,7 @@
         <input
           maxlength="8"
           type="text"
-          class="form-control"
+          class="form-control shadow"
           placeholder="Digite aqui o CEP"
           v-model="cliente.place.cep"
         />
@@ -80,7 +80,7 @@
         <input
           maxlength="50"
           type="text"
-          class="form-control"
+          class="form-control shadow"
           placeholder="Digite aqui o Endereço"
           v-model="cliente.place.logradouro"
         />
@@ -92,7 +92,7 @@
         <input
           maxlength="30"
           type="text"
-          class="form-control"
+          class="form-control shadow"
           placeholder="Digite aqui o Bairro"
           v-model="cliente.place.bairro"
         />
@@ -102,7 +102,7 @@
         <input
           maxlength="30"
           type="text"
-          class="form-control"
+          class="form-control shadow"
           placeholder="Digite aqui o Cidade"
           v-model="cliente.place.localidade"
         />
@@ -114,7 +114,7 @@
         <input
           maxlength="10"
           type="text"
-          class="form-control"
+          class="form-control shadow"
           placeholder="Numero"
           v-model="cliente.place.numero"
         />
@@ -124,7 +124,7 @@
         <input
           maxlength="10"
           type="text"
-          class="form-control"
+          class="form-control shadow"
           placeholder="Complemento"
           v-model="cliente.place.complemento"
         />
@@ -136,7 +136,7 @@
         <label class="form-label">DDD</label>
         <input
           type="number"
-          class="form-control"
+          class="form-control shadow"
           placeholder="DDD"
           max="999"
           maxlength="3"
@@ -148,7 +148,7 @@
         <label class="form-label">Telefone</label>
         <input
           type="number"
-          class="form-control"
+          class="form-control shadow"
           placeholder="Digite aqui o telefone"
           max="999999999"
           maxlength="9"

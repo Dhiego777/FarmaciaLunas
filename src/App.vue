@@ -1,6 +1,6 @@
 <template>
   <nav
-    class="container-fluid navbar navbar-expand-lg navbar-light bg-light mb-2"
+    class="container-fluid navbar navbar-expand-lg navbar-light bg-white mb-2"
   >
     <div
       class="col collapse navbar-collapse d-flex justify-content-start"
@@ -9,13 +9,12 @@
       <div class="navbar-nav">
         <a class="navbar-brand" href="#">
           <img
-            src="./assets/logo.png"
-            width="40"
-            height="40"
+            src="./assets/logoNome.png"
+            width="60"
+            height="50"
             class="d-inline-block align-center"
             alt=""
           />
-          Lunas
         </a>
       </div>
     </div>
@@ -46,10 +45,6 @@
   background-color: #e2e2e2;
 }
 
-/* #nav {
-  padding: 30px;
-} */
-
 #nav a {
   font-weight: bold;
   color: #2c3e50;
@@ -57,5 +52,8 @@
 
 #nav a.router-link-exact-active {
   color: #42b983;
+}
+.nav {
+  background-color: white !important;
 }
 </style>

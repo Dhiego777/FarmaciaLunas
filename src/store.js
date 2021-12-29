@@ -1,9 +1,13 @@
 import { createStore } from 'vuex'
-
+import{roadmapFile} from './models/datas.js'
 export default createStore({
   state: {
     selectedUser: {},
     user: [],
+    frontEnd:[],
+    backEnd:[],
+    publicity:[],
+    roadmap:roadmapFile()
   },
   mutations: {
     setSelectedUser(state, user) {
@@ -17,6 +21,18 @@ export default createStore({
     setUser(){
       localStorage.setItem("user", JSON.stringify(user));
       state.user = user;
+    },
+    setFrontEnd(state,frontEnd){
+      localStorage.setItem("frontEnd",JSON.stringify(frontEnd));
+      state.frontEnd = frontEnd
+    },
+    setBackEnd(state,backEnd){
+      localStorage.setItem("backEnd",JSON.stringify(backEnd));
+      state.backEnd = backEnd
+    },
+    setPublicity(state,publicity){
+      localStorage.setItem("publicity",JSON.stringify(publicity));
+      state.publicity = publicity
     },
     initialiseStore(state) {
       let localStorageSelectedUser = localStorage.getItem("selectedUser");

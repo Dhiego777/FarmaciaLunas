@@ -7,7 +7,7 @@
     </router-link>
   </div>
   <div class="col d-flex justify-content-center">
-    <div class="card shadow">
+    <div class="card">
       <div class="card-body">
         <div class="row d-flex justify-content-center">
           <div class="d-flex justify-content-center" id="product-table">

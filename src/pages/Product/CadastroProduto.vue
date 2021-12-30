@@ -19,27 +19,25 @@
             id="classificacao"
           >
             <option value="-1" disabled>Selecione a classificação</option>
-            <option value="N/CLASSIF">Não classificado</option>
-            <option value="SIMILAR">Similar</option>
-            <option value="REFERENCIA">Referencia</option>
-            <option value="GENERICO">Genérico</option>
+            <option value="S">Não classificado</option>
+            <option value="N">Similar</option>
+            <option value="1">Referencia</option>
+            <option value="2">Genérico</option>
           </select>
         </form>
         <div class="row d-flex justify-content-center">
           <div class="col-xs-12 col-md-9 col-lg-8 col-xl-7 col-xxl-6 mb-3">
-            <label class="form-label">Princípio Ativo</label>
+            <label class="form-label">Principio Ativo</label>
             <input
               maxlength="100"
               type="text"
               class="form-control"
-              placeholder="Digite aqui o princípio ativo"
+              placeholder="Digite aqui o Nome"
               v-model="product.principio_ativo"
             />
           </div>
         </div>
-        <label for="classe_terapeutica" class="form-label"
-          >Classe Terapêutica
-        </label>
+        <label for="classe_terapeutica" class="form-label">Classe Terapeutica </label>
         <form>
           <select
             class="form-control mt-2"

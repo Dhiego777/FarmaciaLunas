@@ -8,16 +8,13 @@ import Toast, {POSITION} from "vue-toastification";
 // Import the CSS or use your own!
 import "vue-toastification/dist/index.css";
 
+
 const options = {
     position: POSITION.BOTTOM_LEFT,
     timeout: 2500
 };
 
-const app = createApp(App)
-app.use(router)
-app.use(Toast, options)
-app.use(store)
-app.mount('#app')
+createApp(App).use(router).use(Toast, options).use(store).mount('#app')
 
 
 

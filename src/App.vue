@@ -1,12 +1,38 @@
 <template>
-
-  <router-view v-slot="{Component}">
-    <transition name="slide">
-      <component :is="Component"/>
-    </transition>
-  </router-view>
-
-  
+  <nav
+    class="container-fluid navbar navbar-expand-lg navbar-light bg-white mb-2"
+  >
+    <div
+      class="col collapse navbar-collapse d-flex justify-content-start"
+      id="navbarNavAltMarkup"
+    >
+      <div class="navbar-nav">
+        <a class="navbar-brand" href="#">
+          <img
+            src="./assets/logoNome.png"
+            width="60"
+            height="50"
+            class="d-inline-block align-center"
+            alt=""
+          />
+        </a>
+      </div>
+    </div>
+    <!-- <div
+      class="col collapse navbar-collapse d-flex justify-content-end"
+      id="navbarNavAltMarkup"
+    >
+      <div class="navbar-nav">
+        <a class="nav-item nav-link active" href="#"
+          >Home <span class="sr-only">(current)</span></a
+        >
+        <a class="nav-item nav-link" href="#">Features</a>
+        <a class="nav-item nav-link" href="#">Pricing</a>
+        <a class="nav-item nav-link disabled" href="#">Disabled</a>
+      </div>
+    </div> -->
+  </nav>
+  <router-view />
 </template>
 
 <style>
@@ -14,6 +40,7 @@
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-align: center;
   color: #2c3e50;
   background-color: #e2e2e2;
 }
@@ -28,36 +55,5 @@
 }
 .nav {
   background-color: white !important;
-}
-.slide-enter-active,
-.slide-leave-active {
-  transition: all 0.75s ease-out;
-}
-.wrapper {
-  width: 100%;
-  min-height: 100vh;
-}
-
-.slide-enter-to {
-  position: absolute;
-  right: 0;
-}
-
-
-.slide-enter-from {
-  position: absolute;
-  right: -100%;
-}
-
-
-.slide-leave-to {
-  position: absolute;
-  left: -100%;
-}
-
-
-.slide-leave-from {
-  position: absolute;
-  left: 0;
 }
 </style>

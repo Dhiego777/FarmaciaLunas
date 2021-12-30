@@ -1,11 +1,6 @@
 <template>
   <div id="dashboard">
-    <img alt="Lunas logo" src="../assets/logo.png" class="imagem" />
-    <br>
-    <h1>Lunas</h1>
-    <p>
-      Gestão inteligente de recursos
-    </p>
+    <img alt="Lunas logo" src="../assets/LogoLunas.png" class="imagem mb-1" />
     <h1>Bem vindo a <b id="estabelecimento">Drogaria Farma</b></h1>
     <h3>Ambiente Cadastro</h3>
     <ul>
@@ -46,7 +41,7 @@ export default {
   margin-top: 60px;
 }
 .imagem {
-  width: 175px;
+  width: 500px;
 }
 h3 {
   margin: 40px 0 0;
